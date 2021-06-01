@@ -3,6 +3,7 @@
 with lib; {
   imports = [
     ./users
+    ./colemak.nix
   ];
 
   config = {
@@ -15,6 +16,8 @@ with lib; {
     '';
 
     time.timeZone = "US/Mountain";
+
+    colemak.enable = true;
 
     nix = {
       autoOptimiseStore = true;
@@ -36,6 +39,7 @@ with lib; {
 
     services.openntpd.enable = true;
 
+    programs.ssh.startAgent = true;
     services.openssh = {
       enable = true;
       forwardX11 = true;
