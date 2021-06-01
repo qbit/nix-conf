@@ -17,8 +17,6 @@ with lib; {
 
     time.timeZone = "US/Mountain";
 
-    colemak.enable = true;
-
     nix = {
       autoOptimiseStore = true;
       useSandbox = true;
