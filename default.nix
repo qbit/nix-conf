@@ -3,7 +3,6 @@
 with lib; {
   imports = [
     ./users
-    ./colemak.nix
   ];
 
   config = {
@@ -16,6 +15,13 @@ with lib; {
     '';
 
     time.timeZone = "US/Mountain";
+
+    console.useXkbConfig = true;
+    services.xserver = {
+      layout = "us";
+      xkbVariant = "colemak";
+      xkbOptions = "caps:control";
+    };
 
     nix = {
       autoOptimiseStore = true;
