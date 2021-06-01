@@ -16,7 +16,9 @@ with lib; {
 
     time.timeZone = "US/Mountain";
 
-    console.useXkbConfig = true;
+    console = {
+      keyMap = "colemak";
+    };
     services.xserver = {
       layout = "us";
       xkbVariant = "colemak";
