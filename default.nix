@@ -45,6 +45,8 @@ with lib; {
 
     services.openntpd.enable = true;
 
+    programs.zsh.enable = true;
+
     programs.ssh.startAgent = true;
     services.openssh = {
       enable = true;
