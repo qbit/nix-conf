@@ -3,6 +3,7 @@
 with lib; {
   imports = [
     ./users
+    ./update.nix
   ];
 
   config = {
@@ -58,11 +59,6 @@ with lib; {
     services.resolved = {
       enable = true;
       dnssec = "false";
-    };
-
-    system.autoUpgrade = {
-      enable = true;
-      allowReboot = false;
     };
   };
 }
