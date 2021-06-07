@@ -5,6 +5,7 @@ with lib; {
     ./users
     ./update.nix
     ./colemak.nix
+    ./gui
   ];
 
   config = {
