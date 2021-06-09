@@ -6,6 +6,7 @@ with lib; {
     ./update.nix
     ./colemak.nix
     ./gui
+    ./dbuild
   ];
 
   config = {
