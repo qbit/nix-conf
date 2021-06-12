@@ -5,6 +5,7 @@ with lib; {
     ./users
     ./update.nix
     ./colemak.nix
+    ./priv-upie.nix
     ./gui
     ./dbuild
   ];
@@ -29,11 +30,6 @@ with lib; {
         dates = "weekly";
         options = "--delete-older-than 10d";
       };
-    };
-
-    security = {
-      doas.enable = true;
-      sudo.enable = false;
     };
 
     networking.timeServers = options.networking.timeServers.default;
