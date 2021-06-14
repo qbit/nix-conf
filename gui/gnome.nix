@@ -9,5 +9,8 @@ with lib; {
   config = mkIf config.gnome.enable {
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
+
+    sound.enable = true;
+    services.xserver.enable = true;
   };
 }
