@@ -1,14 +1,8 @@
 { config, lib, options, pkgs, ... }:
 
 with lib; {
-  imports = [
-    ./users
-    ./update.nix
-    ./colemak.nix
-    ./priv-upie.nix
-    ./gui
-    ./dbuild
-  ];
+  imports =
+    [ ./users ./update.nix ./colemak.nix ./priv-upie.nix ./gui ./dbuild ];
 
   config = {
     boot.cleanTmpDir = true;

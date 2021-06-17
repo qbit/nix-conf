@@ -1,10 +1,6 @@
 { config, lib, ... }:
 with lib; {
-  options = {
-    kde = {
-      enable = mkEnableOption "Enable KDE desktop.";
-    };
-  };
+  options = { kde = { enable = mkEnableOption "Enable KDE desktop."; }; };
 
   config = mkIf config.kde.enable {
     services.xserver.displayManager.sddm.enable = true;

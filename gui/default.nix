@@ -1,8 +1,4 @@
 { config, lib, ... }:
 with lib; {
-  imports = [
-    ./gnome.nix
-    ./kde.nix
-    ./xfce.nix
-  ];
+  imports = [ ./gnome.nix ./kde.nix ./xfce.nix ];
 }
