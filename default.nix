@@ -30,6 +30,12 @@ with lib; {
         dates = "weekly";
         options = "--delete-older-than 10d";
       };
+
+      # Enable flakes
+      package = pkgs.nixUnstable;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
     };
 
     networking.timeServers = options.networking.timeServers.default;
