@@ -7,7 +7,7 @@ with lib; {
   config = {
     boot.cleanTmpDir = true;
 
-    environment.systemPackages = with pkgs; [ age minisign tmux git neovim ];
+    environment.systemPackages = with pkgs; [ age minisign tmux git neovim nixfmt ];
 
     environment.interactiveShellInit = ''
       alias vi=nvim
