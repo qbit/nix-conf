@@ -21,7 +21,7 @@ with lib; {
     '';
     nix.buildMachines = [{
       hostName = "pcake";
-      systems = [ "x86_64-linux" "aarch54-linux" ];
+      systems = [ "x86_64-linux" "aarch64-linux" ];
       maxJobs = 2;
       speedFactor = 4;
       supportedFeatures = [ "kvm" "big-parallel" "nixos-test" "benchmark" ];
