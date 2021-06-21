@@ -11,6 +11,7 @@ with lib; {
 
     environment.interactiveShellInit = ''
       alias vi=nvim
+      alias jfd="nix-channel --update; nixos-rebuild switch --upgrade"
     '';
 
     time.timeZone = "US/Mountain";
