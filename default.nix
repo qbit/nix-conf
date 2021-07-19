@@ -2,7 +2,7 @@
 
 with lib; {
   imports =
-    [ ./users ./update.nix ./colemak.nix ./priv-upie.nix ./gui ./dbuild ];
+    [ ./users ./update.nix ./colemak.nix ./security.nix ./gui ./dbuild ];
 
   config = {
     boot.cleanTmpDir = true;
@@ -22,6 +22,8 @@ with lib; {
     '';
 
     time.timeZone = "US/Mountain";
+
+    nixLockdown.enable = true;
 
     nix = {
       autoOptimiseStore = true;
