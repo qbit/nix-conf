@@ -5,7 +5,6 @@ with lib; {
   config = mkIf config.xfce.enable {
     services.xserver.desktopManager.xfce = {
       enable = true;
-      screenLock = "xflock4";
     };
 
     sound.enable = true;
