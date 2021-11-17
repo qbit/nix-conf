@@ -6,7 +6,7 @@ with lib; {
     services.xserver.desktopManager.xfce = {
       enable = true;
       screenLock = "xflock4";
-    }
+    };
 
     sound.enable = true;
     services.xserver.enable = true;
