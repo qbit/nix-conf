@@ -2,7 +2,15 @@
 
 with lib; {
   imports =
-    [ ./users ./update.nix ./colemak.nix ./security.nix ./gui ./dbuild ];
+    [
+      ./users
+      ./update.nix
+      ./colemak.nix
+      ./develop.nix
+      ./security.nix
+      ./gui
+      ./dbuild
+    ];
 
   config = {
     boot.cleanTmpDir = true;
