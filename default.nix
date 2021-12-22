@@ -66,7 +66,7 @@ with lib; {
 
     services.resolved = {
       enable = true;
-      dnssec = "false";
+      dnssec = "true";
     };
   };
 }
