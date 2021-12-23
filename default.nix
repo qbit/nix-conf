@@ -19,7 +19,6 @@ with lib; {
     environment.systemPackages = with pkgs; [
       age
       minisign
-      tmux
       git
       neovim
       nixfmt
