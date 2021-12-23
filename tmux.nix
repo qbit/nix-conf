@@ -2,7 +2,7 @@
 with lib; {
   programs.tmux = {
     enable = true;
-    extraTmuxConf = ''
+    extraConfig = ''
       unbind C-b
       set-option -g prefix C-o
       
