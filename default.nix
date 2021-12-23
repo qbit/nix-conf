@@ -8,6 +8,7 @@ with lib; {
       ./colemak.nix
       ./develop.nix
       ./security.nix
+      ./tmux.nix
       ./gui
       ./dbuild
     ];
