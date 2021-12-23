@@ -44,10 +44,10 @@ with lib; {
       };
 
       # Enable flakes
-      package = pkgs.nixUnstable;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
+      #package = pkgs.nixUnstable;
+      #extraOptions = ''
+      #  experimental-features = nix-command flakes
+      #'';
     };
 
     networking.timeServers = options.networking.timeServers.default;
