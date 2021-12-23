@@ -52,21 +52,28 @@ with lib; {
 
     networking.timeServers = options.networking.timeServers.default;
 
-    services.openntpd.enable = true;
 
-    programs.zsh.enable = true;
+    programs = {
+      zsh.enable = true;
 
-    programs.ssh.startAgent = true;
-    services.openssh = {
-      enable = true;
-      forwardX11 = true;
-      permitRootLogin = "prohibit-password";
-      passwordAuthentication = false;
+      gnupg.agent.enable = true;
+      ssh.startAgent = true;
     };
 
-    services.resolved = {
-      enable = true;
-      dnssec = "false";
+    services = {
+      openntpd.enable = true;
+      pcscd.enable = true;
+      openssh = {
+        enable = true;
+        forwardX11 = true;
+        permitRootLogin = "prohibit-password";
+        passwordAuthentication = false;
+      };
+
+      resolved = {
+        enable = true;
+        dnssec = "false";
+      };
     };
   };
 }
