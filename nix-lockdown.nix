@@ -5,5 +5,11 @@ with lib; {
       enable = mkEnableOption "Lockdown Nix";
     };
   };
-  config = mkIf config.nixLockdown.enable { nix.allowedUsers = [ "@wheel" ]; };
+  config = mkIf config.nixLockdown.enable {
+    nix = {
+      allowedUsers = [ "@wheel" ];
+      trustedUsers = [ "root" "qbit" ];
+      useSandbox = true;
+    };
+  };
 }
