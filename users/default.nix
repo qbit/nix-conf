@@ -65,6 +65,7 @@ in {
       };
 
       pull = { rebase = false; };
+      include = { path = "~/work/git/gitconfig"; };
     };
   };
 }
