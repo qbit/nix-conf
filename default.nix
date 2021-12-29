@@ -111,7 +111,7 @@ with lib; {
 
       resolved = {
         enable = true;
-        dnssec = "false";
+        dnssec = "true";
       };
     };
   };
