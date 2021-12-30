@@ -103,6 +103,11 @@ with lib; {
       resolved = {
         enable = true;
         dnssec = "true";
+        extraConfig = ''
+          	[Resolve]
+                  DNS=9.9.9.9#dns.quad9.net
+                  DNSOverTLS=yes
+          	'';
       };
     };
   };
