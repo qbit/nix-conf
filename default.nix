@@ -29,34 +29,25 @@ with lib; {
       example = default;
       description = "Base zsh config";
       default = ''
-      # That sweet sweet ^W
-    WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+          # That sweet sweet ^W
+        WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-    autoload -Uz compinit && compinit
-    autoload -Uz vcs_info
-    autoload -Uz colors && colors
-    #[ -n "$BASH" ] && complete -F _fzf_complete_doge -o default -o bashdefault doge
+        autoload -Uz compinit && compinit
+        autoload -Uz vcs_info
+        autoload -Uz colors && colors
 
-    export GPG_AGENT_INFO="~/.gnupg/S.gpg-agent:$(pgrep gpg-agent):1"
-    if which -s keychain >/dev/null; then
-            keychain --inherit any --agents ssh,gpg -q -Q
-    fi
-    MYNAME=$(uname -n)
-    [[ -f ~/.keychain/$${MYNAME}-sh ]] && . ~/.keychain/$${MYNAME}-sh
-    [[ -f ~/.keychain/$${MYNAME}-sh-gpg  ]] && . ~/.keychain/$${MYNAME}-sh-gpg
+        precmd_vcs_info() { vcs_info }
+        precmd_functions+=( precmd_vcs_info )
 
-    precmd_vcs_info() { vcs_info }
-    precmd_functions+=( precmd_vcs_info )
+        setopt prompt_subst
 
-    setopt prompt_subst
+        zstyle ':vcs_info:*' enable git hg cvs
+        zstyle ':vcs_info:*' get-revision true
+        zstyle ':vcs_info:git:*' check-for-changes true
+        zstyle ':vcs_info:git:*' formats '[%b]'
 
-    zstyle ':vcs_info:*' enable git hg cvs
-    zstyle ':vcs_info:*' get-revision true
-    zstyle ':vcs_info:git:*' check-for-changes true
-    zstyle ':vcs_info:git:*' formats '[%b]'
-
-    PROMPT="%n@%m[%(?.%{$fg[white]%}.%{$fg[red]%})%?%{$reset_color%}]:%~\$${vcs_info_msg_0_}%# "
-      '';
+        PROMPT="%n@%m[%(?.%{$fg[white]%}.%{$fg[red]%})%?%{$reset_color%}]:%~\$${vcs_info_msg_0_}%# "
+          '';
     };
   };
 
