@@ -14,12 +14,12 @@ with lib; {
       ];
     })
     (mkIf config.jetbrains.enable {
+      nixpkgs.config.allowUnfreePredicate = pkg:
+        builtins.elem (lib.getName pkg) [ "idea-ultimate" "goland" ];
+
       environment.systemPackages = with pkgs; [
         jetbrains.idea-ultimate
-        jetbrains.webstorm
         jetbrains.goland
-        jetbrains.ruby-mine
-	ruby.devEnv
       ];
     })
   ];
