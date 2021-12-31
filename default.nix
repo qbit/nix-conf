@@ -55,7 +55,15 @@ with lib; {
   config = {
     boot.cleanTmpDir = true;
 
-    environment.systemPackages = with pkgs; [ age minisign git neovim nixfmt ];
+    environment.systemPackages = with pkgs; [
+      age
+      bind
+      git
+      minisign
+      mosh
+      neovim
+      nixfmt
+    ];
 
     environment.interactiveShellInit = ''
       alias vi=nvim
@@ -101,9 +109,7 @@ with lib; {
         passwordAuthentication = false;
       };
 
-      resolved = {
-        enable = true;
-      };
+      resolved = { enable = true; };
     };
   };
 }
