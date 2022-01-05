@@ -57,6 +57,8 @@ with lib; {
 
     environment.systemPackages = with pkgs; [
       age
+      pass
+      gnupg
       bind
       git
       minisign

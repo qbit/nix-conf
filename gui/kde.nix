@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   options = { kde = { enable = mkEnableOption "Enable KDE desktop."; }; };
 
@@ -8,5 +8,7 @@ with lib; {
 
     sound.enable = true;
     services.xserver.enable = true;
+
+    environment.systemPackages = with pkgs; [ kdeconnect plasma-pass ];
   };
 }
