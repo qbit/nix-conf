@@ -57,14 +57,15 @@ with lib; {
 
     environment.systemPackages = with pkgs; [
       age
-      pass
-      gnupg
       bind
       git
+      gnupg
       minisign
       mosh
       neovim
       nixfmt
+      pass
+      pcsctools
     ];
 
     environment.interactiveShellInit = ''
