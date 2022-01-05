@@ -4,6 +4,13 @@ with lib; {
 
   config =
     lib.mkIf (config.kde.enable || config.gnome.enable || config.xfce.enable) {
-      environment.systemPackages = with pkgs; [ brave go-font gparted nheko ];
+      environment.systemPackages = with pkgs; [
+        bettercap
+        brave
+        go-font
+        gparted
+        nheko
+        wireshark
+      ];
     };
 }
