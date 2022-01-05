@@ -93,6 +93,9 @@ with lib; {
       #'';
     };
 
+    documentation.enable = true;
+    documentation.man.enable = true;
+
     networking.timeServers = options.networking.timeServers.default;
 
     programs = {
