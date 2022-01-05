@@ -109,7 +109,6 @@ with lib; {
       pcscd.enable = true;
       openssh = {
         enable = true;
-        forwardX11 = true;
         permitRootLogin = "prohibit-password";
         passwordAuthentication = false;
       };
