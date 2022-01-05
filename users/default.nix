@@ -15,7 +15,7 @@ in {
   };
 
   environment.systemPackages = [ pkgs.git ];
-  programs.zsh.shellInit = config.myconf.zshConf;
+  programs.zsh.interactiveShellInit = config.myconf.zshConf;
   programs.ssh = {
     startAgent = true;
     agentTimeout = "100m";
