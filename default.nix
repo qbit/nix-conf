@@ -55,8 +55,6 @@ with lib; {
         zstyle ':vcs_info:git:*' check-for-changes true
         zstyle ':vcs_info:git:*' formats '[%b]'
 
-        PROMPT="%n@%m[%(?.%{$fg[white]%}.%{$fg[red]%})%?%{$reset_color%}]:%~$vcs_info_msg_0_%# "
-
         set -o emacs
                           '';
     };
