@@ -1,7 +1,13 @@
 { config, lib, options, pkgs, ... }:
 
-with lib; {
+let
+  sshKnownHosts = builtins.fetchGit {
+    url = "https://github.com/qbit/ssh_known_hosts.git";
+    ref = "refs/heads/master";
+  };
+in {
   imports = [
+    (import "${sshKnownHosts}")
     ./colemak.nix
     ./dbuild
     ./dns.nix
@@ -15,8 +21,8 @@ with lib; {
   ];
 
   options.myconf = {
-    hwPubKeys = mkOption rec {
-      type = types.listOf types.str;
+    hwPubKeys = lib.mkOption rec {
+      type = lib.types.listOf lib.types.str;
       default = [
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIB1cBO17AFcS2NtIT+rIxR2Fhdu3HD4de4+IsFyKKuGQAAAACnNzaDpsZXNzZXI="
         "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIDEKElNAm/BhLnk4Tlo00eHN5bO131daqt2DIeikw0b2AAAABHNzaDo="
