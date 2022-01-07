@@ -31,16 +31,16 @@ in {
       example = default;
       description = "List of hardwar public keys to use";
     };
-    zshPrompt = mkOption rec {
-      type = types.lines;
+    zshPrompt = lib.mkOption rec {
+      type = lib.types.lines;
       example = default;
       description = "Base zsh prompt";
       default = ''
         PROMPT="%n@%m[%(?.%{$fg[white]%}.%{$fg[red]%})%?%{$reset_color%}]:%~$vcs_info_msg_0_%# "
           '';
     };
-    zshConf = mkOption rec {
-      type = types.lines;
+    zshConf = lib.mkOption rec {
+      type = lib.types.lines;
       example = default;
       description = "Base zsh config";
       default = ''
