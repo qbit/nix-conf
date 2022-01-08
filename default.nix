@@ -8,10 +8,11 @@ let
 in {
   imports = [
     (import "${sshKnownHosts}")
+
     ./colemak.nix
     ./dbuild
-    ./dns.nix
     ./develop.nix
+    ./dns.nix
     ./gui
     ./neovim.nix
     ./security.nix
@@ -36,6 +37,20 @@ in {
       example = default;
       description = "Base zsh prompt";
       default = ''
+        autoload -U promptinit && promptinit
+        autoload -Uz vcs_info
+        autoload -Uz colors && colors
+
+        setopt prompt_subst
+
+        zstyle ':vcs_info:*' enable git hg cvs
+        zstyle ':vcs_info:*' get-revision true
+        zstyle ':vcs_info:git:*' check-for-changes true
+        zstyle ':vcs_info:git:*' formats '[%b]'
+
+        precmd_vcs_info() { vcs_info }
+        precmd_functions+=( precmd_vcs_info )
+
         PROMPT="%n@%m[%(?.%{$fg[white]%}.%{$fg[red]%})%?%{$reset_color%}]:%~$vcs_info_msg_0_%# "
           '';
     };
@@ -48,18 +63,6 @@ in {
         WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
         autoload -Uz compinit && compinit
-        autoload -Uz vcs_info
-        autoload -Uz colors && colors
-
-        precmd_vcs_info() { vcs_info }
-        precmd_functions+=( precmd_vcs_info )
-
-        setopt prompt_subst
-
-        zstyle ':vcs_info:*' enable git hg cvs
-        zstyle ':vcs_info:*' get-revision true
-        zstyle ':vcs_info:git:*' check-for-changes true
-        zstyle ':vcs_info:git:*' formats '[%b]'
 
         set -o emacs
                           '';
