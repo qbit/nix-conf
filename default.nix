@@ -80,6 +80,7 @@ in {
       nixfmt
       pass
       pcsctools
+      rbw
     ];
 
     environment.interactiveShellInit = ''

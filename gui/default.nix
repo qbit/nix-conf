@@ -3,12 +3,15 @@
 
   config =
     lib.mkIf (config.kde.enable || config.gnome.enable || config.xfce.enable) {
+      security.rtkit.enable = true;
+      services.pipewire.enable = true;
       environment.systemPackages = with pkgs; [
         bettercap
         brave
         go-font
         gparted
         nheko
+        signal-desktop
         wireshark
       ];
     };
