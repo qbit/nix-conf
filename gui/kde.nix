@@ -6,9 +6,6 @@ with lib; {
     services.xserver.displayManager.sddm.enable = true;
     services.xserver.desktopManager.plasma5.enable = true;
 
-    sound.enable = true;
-    services.xserver.enable = true;
-
     environment.systemPackages = with pkgs; [ kdeconnect plasma-pass ];
   };
 }
