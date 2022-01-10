@@ -77,6 +77,7 @@ in {
       bind
       git
       gnupg
+      inetutils
       minisign
       mosh
       neovim
