@@ -18,11 +18,6 @@ with lib; {
         opt = [ ];
       };
       customRC = ''
-        autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-
         nmap <Leader>bi :PaqInstall<CR>
         nmap <Leader>bu :PaqUpdate<CR>
         nmap <Leader>bc :PaqClean<CR>
@@ -50,7 +45,7 @@ with lib; {
         set ruler
         set mouse-=a
 
-         syntax off
+        syntax off
 
         au User lsp_setup call lsp#register_server({
                 \ 'name': 'rust-analyzer',
