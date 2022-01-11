@@ -80,7 +80,6 @@ in {
       inetutils
       minisign
       mosh
-      neovim
       nixfmt
       pass
       pcsctools

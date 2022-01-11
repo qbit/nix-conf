@@ -1,9 +1,22 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     configure = {
+      packages.myVimPackage = with pkgs.vimPlugins; {
+        # loaded on launch
+        start = [
+          fugitive
+          vim-gitgutter
+          vim-nix
+          vim-go
+          nvim-lspconfig
+          nvim-treesitter
+        ];
+        # manually loadable by calling `:packadd $plugin-name`
+        opt = [ ];
+      };
       customRC = ''
         autocmd BufReadPost *
         \ if line("'\"") > 1 && line("'\"") <= line("$") |
