@@ -13,6 +13,7 @@ in {
     ./dbuild
     ./develop.nix
     ./dns.nix
+    ./emacs.nix
     ./gui
     ./neovim.nix
     ./security.nix
