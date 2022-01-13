@@ -73,7 +73,7 @@ in {
 
   config = {
     # from https://github.com/dylanaraps/neofetch
-    users.motd = ''
+    users.motd = "
           ::::.    ':::::     ::::'
           ':::::    ':::::.  ::::'
             :::::     '::::.:::::
@@ -93,7 +93,7 @@ in {
            .::::''::::.     '::::.
           .::::'   ::::.     '::::.
          .::::      ::::      '::::.
-    '';
+    ";
     boot.cleanTmpDir = true;
 
     environment.systemPackages = with pkgs; [
