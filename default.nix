@@ -14,6 +14,7 @@ in {
     ./develop.nix
     ./dns.nix
     ./emacs.nix
+    ./git.nix
     ./gui
     ./neovim.nix
     ./security.nix
