@@ -62,6 +62,7 @@ in {
       example = default;
       description = "Base zsh config";
       default = ''
+        export NO_COLOR=1
         # That sweet sweet ^W
         WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
