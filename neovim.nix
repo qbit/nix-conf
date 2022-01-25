@@ -1,17 +1,17 @@
 { config, lib, pkgs, ... }:
-with lib; {
+let myOrg = (pkgs.vimPlugins.orgmode or pkgs.vimPLugins.vim-orgmode);
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     configure = {
       packages.myVimPackage = with pkgs.vimPlugins; {
-        # loaded on launch
         start = [
           fugitive
           nvim-compe
           nvim-lspconfig
           nvim-treesitter
-          orgmode
+          myOrg
           vim-gitgutter
           vim-go
           vim-nix
