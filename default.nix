@@ -130,10 +130,10 @@ in {
       };
 
       # Enable flakes
-      #package = pkgs.nixUnstable;
-      #extraOptions = ''
-      #  experimental-features = nix-command flakes
-      #'';
+      package = pkgs.nixUnstable;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
     };
 
     documentation.enable = true;

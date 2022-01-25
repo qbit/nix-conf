@@ -11,7 +11,7 @@ with lib; {
           nvim-compe
           nvim-lspconfig
           nvim-treesitter
-          orgmode-nvim
+          orgmode
           vim-gitgutter
           vim-go
           vim-nix
