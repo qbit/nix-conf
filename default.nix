@@ -101,8 +101,6 @@ in {
     environment.systemPackages = with pkgs; [
       age
       bind
-      git
-      gnupg
       inetutils
       minisign
       mosh
@@ -110,6 +108,7 @@ in {
       pass
       pcsctools
       rbw
+      yash
     ];
 
     environment.interactiveShellInit = ''

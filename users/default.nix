@@ -14,7 +14,7 @@ in {
     extraGroups = [ "wheel" ];
   };
 
-  environment.systemPackages = [ pkgs.git ];
+  #environment.systemPackages = [ pkgs.yash ];
   programs.zsh.interactiveShellInit = config.myconf.zshConf;
   programs.zsh.promptInit = config.myconf.zshPrompt;
   programs.ssh = {
