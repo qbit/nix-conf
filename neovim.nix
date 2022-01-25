@@ -15,6 +15,7 @@ with lib; {
           vim-gitgutter
           vim-go
           vim-nix
+          zig-vim
         ];
         # manually loadable by calling `:packadd $plugin-name`
         opt = [ ];
