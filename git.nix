@@ -16,7 +16,8 @@
       branch = { sort = "-committerdate"; };
       alias = {
         log = "log --color=never";
-        fetch-pr = ''"!f() { git fetch $1 refs/pull/$2/head:refs/remotes/pr/$2; }; f"'';
+        fetch-pr =
+          ''"!f() { git fetch $1 refs/pull/$2/head:refs/remotes/pr/$2; }; f"'';
       };
       push = { default = "current"; };
 
