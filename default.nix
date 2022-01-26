@@ -109,7 +109,6 @@ in {
       pass
       pcsctools
       rbw
-      yash
     ];
 
     environment.interactiveShellInit = ''
