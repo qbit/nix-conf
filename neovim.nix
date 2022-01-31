@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-let myOrg = (pkgs.vimPlugins.orgmode or pkgs.vimPLugins.vim-orgmode);
+let myOrg = (pkgs.vimPlugins.orgmode or pkgs.vimPlugins.vim-orgmode);
 in {
   programs.neovim = {
     enable = true;
