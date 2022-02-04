@@ -23,6 +23,7 @@
         nheko
         signal-desktop
         wireshark
+        xclip
       ];
     };
 }
