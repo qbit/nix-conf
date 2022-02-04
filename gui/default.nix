@@ -20,6 +20,7 @@
         brave
         go-font
         gparted
+        logseq
         nheko
         signal-desktop
         wireshark
