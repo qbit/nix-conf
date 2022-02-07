@@ -1,4 +1,4 @@
-{ config, lib, options, pkgs, ... }:
+{ config, lib, options, pkgs, isUnstable, ... }:
 
 let
   sshKnownHosts = builtins.fetchGit {
@@ -17,6 +17,8 @@ in {
     ./git.nix
     ./gui
     ./neovim.nix
+    ./nix-lockdown.nix
+    ./nix-config.nix
     ./security.nix
     ./tmux.nix
     ./update.nix
@@ -119,23 +121,6 @@ in {
     time.timeZone = "US/Mountain";
 
     nixLockdown.enable = true;
-
-    nix = {
-      autoOptimiseStore = true;
-      useSandbox = true;
-
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 10d";
-      };
-
-      # Enable flakes
-      package = pkgs.nixUnstable;
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
-    };
 
     documentation.enable = true;
     documentation.man.enable = true;
