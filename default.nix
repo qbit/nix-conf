@@ -120,8 +120,6 @@ in {
 
     time.timeZone = "US/Mountain";
 
-    nixLockdown.enable = true;
-
     documentation.enable = true;
     documentation.man.enable = true;
 

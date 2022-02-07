@@ -1,6 +1,15 @@
 { config, lib, isUnstable, ... }:
 with lib; {
-  options = { nixLockdown = { enable = mkEnableOption "Lockdown Nix"; }; };
+  options = {
+    nixLockdown = {
+      enable = mkOption {
+        description = "Lockdown Nix";
+        default = true;
+        example = true;
+        type = lib.types.bool;
+      };
+    };
+  };
   config = mkIf config.nixLockdown.enable {
     nix = if isUnstable then {
       settings.sandbox = true;

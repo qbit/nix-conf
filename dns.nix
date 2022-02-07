@@ -1,7 +1,14 @@
 { config, lib, ... }:
 with lib; {
   options = {
-    dnssec = { enable = mkEnableOption "Enable DNSSEC"; };
+    dnssec = {
+      enable = mkOption {
+        description = "Enable DNSSEC";
+        default = true;
+        example = true;
+        type = lib.types.bool;
+      };
+    };
     dnsOverTLS = { enable = mkEnableOption "Enable DNSoverTLS"; };
   };
 

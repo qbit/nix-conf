@@ -1,7 +1,14 @@
 { config, lib, ... }:
 with lib; {
   options = {
-    colemak = { enable = mkEnableOption "Enable colemak keyboard layout"; };
+    colemak = {
+      enable = mkOption {
+        description = "Enable colemak keyboard layout";
+        default = true;
+        example = true;
+        type = lib.types.bool;
+      };
+    };
   };
 
   config = mkIf config.colemak.enable {
