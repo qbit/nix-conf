@@ -51,7 +51,7 @@ with lib; {
       set -g status-left '#[fg=green][#[fg=red]#S:#(~/bin/beat)#[fg=black,dim]#[fg=green]] '
       set -g status-right-length 50
 
-      set -g status-right '#[fg=green][#[fg=black]#(gitmux -cfg ~/.gitmux.conf "#{pane_current_path}")#[default]#[fg=green]][#[fg=black]#T#[fg=green]][#[fg=black]%Y-%m-%d #[fg=black]%I:%M %p#[default]#[fg=green]]'
+      set -g status-right '#[fg=green][#[fg=black]#(gitmux -cfg /etc/gitmux.conf "#{pane_current_path}")#[default]#[fg=green]][#[fg=black]#T#[fg=green]][#[fg=black]%Y-%m-%d #[fg=black]%I:%M %p#[default]#[fg=green]]'
 
       set -g window-style 'bg=#DEDEFF'
       set -g window-active-style 'bg=terminal'

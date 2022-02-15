@@ -15,6 +15,7 @@ in {
     ./dns.nix
     ./emacs.nix
     ./git.nix
+    ./gitmux.nix
     ./gui
     ./neovim.nix
     ./nix-lockdown.nix
