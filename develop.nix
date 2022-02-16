@@ -7,11 +7,7 @@ with lib; {
 
   config = mkMerge [
     (mkIf config.develop.enable {
-      environment.systemPackages = with pkgs; [
-        nodePackages.typescript
-        nodejs
-        yarn
-      ];
+      environment.systemPackages = with pkgs; [ sshfs ];
     })
     (mkIf config.jetbrains.enable {
       nixpkgs.config.allowUnfreePredicate = pkg:
