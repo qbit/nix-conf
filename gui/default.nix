@@ -1,20 +1,25 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+with lib; {
   imports = [ ./gnome.nix ./kde.nix ./xfce.nix ];
 
-  config =
-    lib.mkIf (config.kde.enable || config.gnome.enable || config.xfce.enable) {
+  options = {
+    pipewire = {
+      enable = mkOption {
+        description = "Enable PipeWire";
+        default = true;
+        example = true;
+        type = types.bool;
+      };
+    };
+  };
+
+  config = mkMerge [
+    (mkIf (config.kde.enable || config.gnome.enable || config.xfce.enable) {
 
       services.xserver.enable = true;
 
       sound.enable = true;
       security.rtkit.enable = true;
-      services.pipewire = {
-        enable = true;
-        pulse.enable = true;
-        jack.enable = true;
-        alsa.enable = true;
-      };
-
       environment.systemPackages = with pkgs; [
         bettercap
         brave
@@ -26,5 +31,14 @@
         wireshark
         xclip
       ];
-    };
+    })
+    (mkIf config.pipewire.enable {
+      services.pipewire = {
+        enable = true;
+        pulse.enable = true;
+        jack.enable = true;
+        alsa.enable = true;
+      };
+    })
+  ];
 }
