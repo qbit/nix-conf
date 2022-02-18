@@ -16,6 +16,8 @@
       branch = { sort = "-committerdate"; };
       alias = {
         log = "log --color=never";
+        pr = ''
+          "!f() { git fetch-pr upstream $1; git checkout pr/$1; }; f"'';
         fetch-pr =
           ''"!f() { git fetch $1 refs/pull/$2/head:refs/remotes/pr/$2; }; f"'';
       };
