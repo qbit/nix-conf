@@ -14,7 +14,9 @@ with lib; {
 
   config = mkMerge [
     (mkIf config.dnssec.enable {
-      services = { resolved = { dnssec = "allow-downgrade"; }; }; # tailscale and what not have no dnssec
+      services = {
+        resolved = { dnssec = "allow-downgrade"; };
+      }; # tailscale and what not have no dnssec
     })
     (mkIf config.dnsOverTLS.enable {
       services = {
