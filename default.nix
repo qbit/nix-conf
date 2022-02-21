@@ -107,6 +107,7 @@ in {
       age
       bind
       inetutils
+      lz4
       minisign
       mosh
       nixfmt
