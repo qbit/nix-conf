@@ -27,6 +27,7 @@ with lib; {
         gparted
         logseq
         nheko
+        seafile-client
         signal-desktop
         wireshark
         xclip
