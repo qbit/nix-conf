@@ -15,6 +15,7 @@ in {
   };
 
   #environment.systemPackages = [ pkgs.yash ];
+  environment.systemPackages = with pkgs; [ go ];
   programs.zsh.interactiveShellInit = config.myconf.zshConf;
   programs.zsh.promptInit = config.myconf.zshPrompt;
   programs.ssh = {
