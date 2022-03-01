@@ -6,6 +6,15 @@ with lib; {
     services.xserver.displayManager.sddm.enable = true;
     services.xserver.desktopManager.plasma5.enable = true;
 
-    environment.systemPackages = with pkgs; [ kdeconnect plasma-pass ];
+    environment.systemPackages = with pkgs; [
+      akonadi
+      plasma5Packages.akonadiconsole
+      plasma5Packages.akonadi-contacts
+      plasma5Packages.akonadi-search
+      plasma5Packages.akonadi-mime
+      kdeconnect
+      kmail
+      plasma-pass
+    ];
   };
 }
