@@ -111,6 +111,7 @@ in {
       minisign
       mosh
       nixfmt
+      nix-index
       pass
       pcsctools
       rbw
