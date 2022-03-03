@@ -14,12 +14,13 @@ in {
     ./develop.nix
     ./dns.nix
     ./emacs.nix
-    ./git.nix
     ./gitmux.nix
+    ./git.nix
     ./gui
     ./neovim.nix
-    ./nix-lockdown.nix
     ./nix-config.nix
+    ./nix-lockdown.nix
+    ./pkgs
     ./security.nix
     ./tmux.nix
     ./update.nix
