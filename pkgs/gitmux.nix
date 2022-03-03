@@ -4,16 +4,16 @@ with lib;
 
 buildGoModule rec {
   pname = "gitmux";
-  version = "0.7.6";
+  version = "0.7.7";
 
   src = fetchFromGitHub {
     owner = "arl";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-y4G+uYT+7N/bGUDOPkMgy1amD6oBIgGQyhSAEb1kCQs";
+    sha256 = "sha256-07IiJv0X92Ber2sdg5q3NzDEJJ7zwbJMuz2YQTij66Y=";
   };
 
-  vendorSha256 = "sha256-znoONkvLYBgH44MiyR7bZwvf7htNSTCAMfWT52gDO4Q=";
+  vendorSha256 = "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs=";
 
   ldflags = [ "-X main.version=${version}" ];
 
