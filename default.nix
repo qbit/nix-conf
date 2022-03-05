@@ -132,7 +132,20 @@ in {
     programs = {
       zsh.enable = true;
       gnupg.agent.enable = true;
-      ssh.startAgent = true;
+      ssh = {
+        startAgent = true;
+        extraConfig = ''
+          AddKeysToAgent yes
+          CanonicalizeHostname always
+          VerifyHostKeyDNS yes
+
+          Host *
+            controlmaster auto
+            controlpath /tmp/ssh-%r@%h:%p
+
+          Include /home/qbit/.ssh/host_config
+                            '';
+      };
     };
 
     services = {
