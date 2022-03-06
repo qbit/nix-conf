@@ -1,7 +1,12 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{ lib, buildGoModule, fetchFromGitHub, isUnstable, ... }:
 
-with lib;
+let
+  vendorHash = if isUnstable then
+    "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs="
+  else
+    "sha256-8ODxdzyqmtZwcsl3VsFN0/nrpATnhd+790MOsDDZgLY=";
 
+in with lib;
 buildGoModule rec {
   pname = "gitmux";
   version = "0.7.7";
@@ -13,10 +18,8 @@ buildGoModule rec {
     sha256 = "sha256-07IiJv0X92Ber2sdg5q3NzDEJJ7zwbJMuz2YQTij66Y=";
   };
 
-  vendorSha256 = if isUnstable then
-    "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs="
-  else
-    "sha256-8ODxdzyqmtZwcsl3VsFN0/nrpATnhd+790MOsDDZgLY=";
+  vendorSha256 = "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs=";
+  #vendorSha256 = vendorHash;
 
   ldflags = [ "-X main.version=${version}" ];
 
