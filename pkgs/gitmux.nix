@@ -13,7 +13,10 @@ buildGoModule rec {
     sha256 = "sha256-07IiJv0X92Ber2sdg5q3NzDEJJ7zwbJMuz2YQTij66Y=";
   };
 
-  vendorSha256 = "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs=";
+  vendorSha256 = if isUnstable then
+    "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs="
+  else
+    "sha256-8ODxdzyqmtZwcsl3VsFN0/nrpATnhd+790MOsDDZgLY=";
 
   ldflags = [ "-X main.version=${version}" ];
 
