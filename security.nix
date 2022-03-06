@@ -1,1 +1,1 @@
-{ config, lib, ... }: with lib; { imports = [ ./doas.nix ./nix-lockdown.nix ]; }
+{ config, lib, ... }: with lib; { imports = [ ./configs/doas.nix ./nix-lockdown.nix ]; }

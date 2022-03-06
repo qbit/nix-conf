@@ -9,21 +9,21 @@ in {
   imports = [
     (import "${sshKnownHosts}")
 
-    ./colemak.nix
+    ./configs/colemak.nix
     ./dbuild
-    ./develop.nix
-    ./dns.nix
-    ./emacs.nix
-    ./gitmux.nix
-    ./git.nix
+    ./configs/develop.nix
+    ./configs/dns.nix
+    ./configs/emacs.nix
+    ./configs/gitmux.nix
+    ./configs/git.nix
     ./gui
-    ./neovim.nix
+    ./configs/neovim.nix
     ./nix-config.nix
     ./nix-lockdown.nix
     ./pkgs
     ./security.nix
-    ./tmux.nix
-    ./update.nix
+    ./configs/tmux.nix
+    ./configs/update.nix
     ./users
   ];
 
