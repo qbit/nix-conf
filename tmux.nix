@@ -13,7 +13,7 @@ with lib; {
       bind-key \\ split-window -h -c '#{pane_current_path}' # vertical pane
       bind-key - split-window -v -c '#{pane_current_path}' # horizontal pane
 
-      bind-key C-r source-file ~/.tmux.conf \; \
+      bind-key C-r source-file /etc/tmux.conf \; \
       	display-message "source-file done"
 
       bind-key m set mouse \; \
@@ -51,7 +51,7 @@ with lib; {
       set -g status-left '#[fg=green][#[fg=red]#S:#(~/bin/beat)#[fg=black,dim]#[fg=green]] '
       set -g status-right-length 50
 
-      set -g status-right '#[fg=green][#[fg=black]#(gitmux -cfg /etc/gitmux.conf "#{pane_current_path}")#[default]#[fg=green]][#[fg=black]#T#[fg=green]][#[fg=black]%Y-%m-%d #[fg=black]%I:%M %p#[default]#[fg=green]]'
+      set -g status-right '#[fg=green][#[fg=black]#(gitmux -cfg /etc/gitmux.conf "#{pane_current_path}")#[default]#[fg=green]][#[fg=black]#(basename "#{pane_current_path}")#[fg=green]][#[fg=black]%Y-%m-%d #[fg=black]%I:%M %p#[default]#[fg=green]]'
 
       set -g window-style 'bg=#DEDEFF'
       set -g window-active-style 'bg=terminal'
