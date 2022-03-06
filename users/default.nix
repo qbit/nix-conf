@@ -5,6 +5,7 @@ let
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = config.myconf.hwPubKeys;
   };
+  goVersion = (pkgs.go_1_17 or pkgs.go);
 in {
   users.users.root = userBase;
   users.users.qbit = userBase // {
@@ -15,7 +16,7 @@ in {
   };
 
   #environment.systemPackages = [ pkgs.yash ];
-  environment.systemPackages = with pkgs; [ go ];
+  environment.systemPackages = with pkgs; [ goVersion ];
   programs.zsh.interactiveShellInit = config.myconf.zshConf;
   programs.zsh.promptInit = config.myconf.zshPrompt;
   programs.ssh = {
