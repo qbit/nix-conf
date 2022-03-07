@@ -33,8 +33,3 @@ require('orgmode').setup({
   org_default_notes_file = '~/org/refile.org',
 })
 
--- vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
--- nmap <leader>2 :set list!<CR>
--- nmap <leader>3 :set nu!<CR>
--- nmap <leader>4 :set paste!<CR>
-

@@ -21,8 +21,18 @@ in {
         opt = [ ];
       };
       customRC = ''
+        " Restore cursor position
+        autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+
+        nmap <leader>2 :set list!<CR>
+        nmap <leader>3 :set nu!<CR>
+        nmap <leader>4 :set paste!<CR>
+
         luafile ${./neovim.lua}
-              '';
+                      '';
     };
   };
 }
