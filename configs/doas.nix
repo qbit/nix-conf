@@ -11,9 +11,10 @@ with lib; {
     security = {
       doas = {
         enable = true;
-        extraRules = [
-          { groups = [ "wheel" ]; persist = true; }
-        ];
+        extraRules = [{
+          groups = [ "wheel" ];
+          persist = true;
+        }];
 
       };
       sudo.enable = false;
