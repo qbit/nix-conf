@@ -26,6 +26,7 @@ with lib; {
         go-font
         gparted
         logseq
+        mpv
         nheko
         seafile-client
         signal-desktop
