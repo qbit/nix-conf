@@ -10,20 +10,20 @@ in {
     (import "${sshKnownHosts}")
 
     ./configs/colemak.nix
-    ./dbuild
     ./configs/develop.nix
     ./configs/dns.nix
+    ./configs/doas.nix
     ./configs/emacs.nix
     ./configs/gitmux.nix
     ./configs/git.nix
-    ./gui
     ./configs/neovim.nix
-    ./nix-config.nix
-    ./nix-lockdown.nix
-    ./pkgs
-    ./security.nix
     ./configs/tmux.nix
-    ./configs/update.nix
+    ./dbuild
+    ./gui
+    ./pkgs
+    ./system/nix-config.nix
+    ./system/nix-lockdown.nix
+    ./system/update.nix
     ./users
   ];
 
