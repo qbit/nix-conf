@@ -9,7 +9,13 @@ with lib; {
       doas = pkgs.doas.override { withPAM = false; };
     };
     security = {
-      doas.enable = true;
+      doas = {
+        enable = true;
+        extraRules = [
+          { groups = [ "wheel" ]; persist = true; }
+        ];
+
+      };
       sudo.enable = false;
     };
   };
