@@ -6,6 +6,7 @@ let
     openssh.authorizedKeys.keys = config.myconf.hwPubKeys;
   };
   goVersion = (pkgs.go_1_17 or pkgs.go);
+  maybeYash = (pkgs.yash or null);
 in {
   users.users.root = userBase;
   users.users.qbit = userBase // {
@@ -15,8 +16,7 @@ in {
     extraGroups = [ "wheel" ];
   };
 
-  #environment.systemPackages = [ pkgs.yash ];
-  environment.systemPackages = with pkgs; [ goVersion ];
+  environment.systemPackages = with pkgs; [ goVersion maybeYash ];
   programs.zsh.interactiveShellInit = config.myconf.zshConf;
   programs.zsh.promptInit = config.myconf.zshPrompt;
   programs.ssh = {
