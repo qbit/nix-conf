@@ -13,8 +13,7 @@ nix-conf
 │   ├── git.nix
 │   ├── neovim.lua
 │   ├── neovim.nix
-│   ├── tmux.nix
-│   └── update.nix
+│   └── tmux.nix
 ├── dbuild
 │   ├── build-consumer.nix
 │   ├── build-server.nix
@@ -27,13 +26,14 @@ nix-conf
 │   ├── kde.nix
 │   └── xfce.nix
 ├── LICENSE
-├── nix-config.nix
-├── nix-lockdown.nix
 ├── pkgs
 │   ├── default.nix
 │   └── gitmux.nix
 ├── README.md
-├── security.nix
+├── system
+│   ├── nix-config.nix
+│   ├── nix-lockdown.nix
+│   └── update.nix
 └── users
     └── default.nix
 ```
