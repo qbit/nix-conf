@@ -28,7 +28,6 @@ with lib; {
         logseq
         mpv
         nheko
-        seafile-client
         signal-desktop
         wireshark
         xclip
