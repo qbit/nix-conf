@@ -8,10 +8,11 @@ in {
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
           fugitive
+          myOrg
           nvim-compe
           nvim-lspconfig
+          nvim-tree-lua
           nvim-treesitter
-          myOrg
           vim-gitgutter
           vim-go
           vim-nix
