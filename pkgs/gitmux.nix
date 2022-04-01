@@ -2,20 +2,20 @@
 
 let
   vendorHash = if isUnstable then
-    "sha256-pKOatgzh3IZgFk3UFk3+EEi+yd0zQ8/1wlsuBIZPWYs="
+    "sha256-lUVngyYnLwCmNXFBMEDO7ecFZNkSi9GGDNTIG4Mk1Zw="
   else
-    "sha256-8ODxdzyqmtZwcsl3VsFN0/nrpATnhd+790MOsDDZgLY=";
+    "";
 
 in with lib;
 buildGoModule rec {
   pname = "gitmux";
-  version = "0.7.7";
+  version = "0.7.9";
 
   src = fetchFromGitHub {
     owner = "arl";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-07IiJv0X92Ber2sdg5q3NzDEJJ7zwbJMuz2YQTij66Y=";
+    sha256 = "sha256-tB/HPOJQEgs3/rHFn7ezi6R9C3HceASLU3WjjKDii9o=";
   };
 
   vendorSha256 = vendorHash;
