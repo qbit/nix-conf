@@ -29,7 +29,7 @@ in {
         \ endif
 
         luafile ${./neovim.lua}
-                      '';
+      '';
     };
   };
 }

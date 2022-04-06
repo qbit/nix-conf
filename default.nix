@@ -59,7 +59,7 @@ in {
         precmd_functions+=( precmd_vcs_info )
 
         PROMPT="%n@%m[%(?.%{$fg[white]%}.%{$fg[red]%})%?%{$reset_color%}]:%~$vcs_info_msg_0_%# "
-          '';
+      '';
     };
     zshConf = lib.mkOption rec {
       type = lib.types.lines;
@@ -73,7 +73,7 @@ in {
         autoload -Uz compinit && compinit
 
         set -o emacs
-                          '';
+      '';
     };
   };
 
@@ -101,7 +101,7 @@ in {
                 .::::'   ::::.     '::::.
                .::::      ::::      '::::.
 
-          '';
+    '';
     boot.cleanTmpDir = true;
 
     environment.systemPackages = with pkgs; [
@@ -144,7 +144,7 @@ in {
             controlpath /tmp/ssh-%r@%h:%p
 
           Include /home/qbit/.ssh/host_config
-                            '';
+        '';
       };
     };
 
