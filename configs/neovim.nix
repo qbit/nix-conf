@@ -14,7 +14,7 @@ in {
           nvim-tree-lua
           nvim-treesitter
           vim-gitgutter
-          vim-go
+          #vim-go
           vim-nix
           zig-vim
         ];
