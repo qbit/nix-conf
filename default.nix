@@ -107,6 +107,7 @@ in {
     environment.systemPackages = with pkgs; [
       age
       bind
+      git-sync
       inetutils
       lz4
       minisign
