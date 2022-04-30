@@ -12,7 +12,7 @@
 
       targets = map (pkgs.lib.removeSuffix ".nix") (pkgs.lib.attrNames
         (pkgs.lib.filterAttrs (_: entryType: entryType == "regular")
-          (builtins.readDir ./targets)));
+          (builtins.readDir ./hosts)));
 
       build-target = target: {
         name = target;
@@ -21,8 +21,8 @@
           system = "x86_64-linux";
 
           modules = [
-            (import (./targets + "/${target}.nix"))
-            (import (./targets + "/${target}/hardware-configuration.nix"))
+            (import (./hosts + "/${target}.nix"))
+            (import (./hosts + "/${target}/hardware-configuration.nix"))
           ];
         };
       };
