@@ -19,12 +19,18 @@ nix-conf
 │   ├── build-server.nix
 │   └── default.nix
 ├── default.nix
+├── flake.lock
+├── flake.nix
 ├── fmt
 ├── gui
 │   ├── default.nix
 │   ├── gnome.nix
 │   ├── kde.nix
 │   └── xfce.nix
+├── hosts
+│   └── europa
+│       ├── configuration.nix
+│       └── hardware-configuration.nix
 ├── LICENSE
 ├── pkgs
 │   ├── default.nix
