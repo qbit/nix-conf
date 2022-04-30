@@ -1,6 +1,10 @@
 {
   description = "bold.daemon";
 
+  # TODO: expand nixosConfigurations to be able to handle stable / unstable
+  # TODO: maybe put system type in the targets attr set
+  # TODO: figure out how to make things pure (./pkgs...)
+
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
     #stablePkgs = { url = "github:NixOS/nixpkgs/nixos-21.11"; };
