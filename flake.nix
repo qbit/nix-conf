@@ -14,8 +14,8 @@
     let
       pkgs = (import nixpkgs) { system = "x86_64-linux"; };
 
-      targets = map (pkgs.lib.removeSuffix ".nix") (pkgs.lib.attrNames
-        (pkgs.lib.filterAttrs (_: entryType: entryType == "regular")
+      targets = (pkgs.lib.attrNames
+        (pkgs.lib.filterAttrs (_: entryType: entryType == "directory")
           (builtins.readDir ./hosts)));
 
       build-target = target: {
@@ -25,7 +25,8 @@
           system = "x86_64-linux";
 
           modules = [
-            (import (./hosts + "/${target}.nix"))
+            (import (./default.nix))
+            (import (./hosts + "/${target}/configuration.nix"))
             (import (./hosts + "/${target}/hardware-configuration.nix"))
           ];
         };
