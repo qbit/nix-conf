@@ -1,16 +1,8 @@
 { config, pkgs, lib, modulesPath, ... }:
 
-let
-  #myConfig = builtins.fetchGit {
-  #  url = "https://github.com/qbit/nix-conf.git";
-  #  ref = "refs/heads/main";
-  #};
-in {
+{
   _module.args.isUnstable = true;
   imports = [
-    ./hardware-configuration.nix
-    #(import "${myConfig}")
-    (import /home/qbit/src/nix-conf)
     #(import "${
     #    toString unstableSrc.path
     #  }/nixos/modules/services/networking/tailscale.nix")
@@ -41,9 +33,7 @@ in {
 
   virtualisation.libvirtd.enable = true;
 
-  #doas.enable = true;
   kde.enable = true;
-  #jetbrains.enable = true;
 
   networking = {
     hostName = "europa";
@@ -68,7 +58,6 @@ in {
   };
 
   services = {
-    #usbmuxd.enable = true;
     blueman.enable = true;
     cron = {
       enable = true;
@@ -105,7 +94,6 @@ in {
     virt-manager
   ];
 
-  #users.users.qbit.extraGroups = [ "libvirtd" "usbmux" ];
   users.users.qbit.extraGroups = [ "libvirtd" ];
 
   system.stateVersion = "21.11";
