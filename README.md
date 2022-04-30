@@ -28,7 +28,8 @@ nix-conf
 ├── LICENSE
 ├── pkgs
 │   ├── default.nix
-│   └── gitmux.nix
+│   ├── gitmux.nix
+│   └── sqlc.nix
 ├── README.md
 ├── system
 │   ├── nix-config.nix
