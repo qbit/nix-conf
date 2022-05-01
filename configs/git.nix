@@ -31,9 +31,7 @@
         ui = false;
       };
 
-      safe = {
-        directory = "/home/qbit/src/nix-conf";
-      };
+      safe = { directory = "/home/qbit/src/nix-conf"; };
 
       transfer = { fsckobjects = true; };
       fetch = { fsckobjects = true; };
