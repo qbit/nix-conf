@@ -1,39 +1,52 @@
 {
   description = "bold.daemon";
 
-  # TODO: expand nixosConfigurations to be able to handle stable / unstable
-  # TODO: maybe put system type in the targets attr set
   # TODO: figure out how to make things pure (./pkgs...)
 
   inputs = {
-    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
-    #stablePkgs = { url = "github:NixOS/nixpkgs/nixos-21.11"; };
+    unstable = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
+    stable = { url = "github:NixOS/nixpkgs/nixos-21.11"; };
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, unstable, stable }:
     let
-      pkgs = (import nixpkgs) { system = "x86_64-linux"; };
+      # TODO: any way to use pkgs without specifying a system?
+      pkgs = (import unstable) { system = "x86_64-linux"; };
 
-      targets = (pkgs.lib.attrNames
-        (pkgs.lib.filterAttrs (_: entryType: entryType == "directory")
-          (builtins.readDir ./hosts)));
+      inherit (builtins) readDir elemAt listToAttrs;
+      inherit (pkgs.lib) attrNames filterAttrs splitString flatten;
 
-      build-target = target: {
-        name = target;
+      hosts = (attrNames
+        (filterAttrs (_: entryType: entryType == "directory")
+          (readDir ./hosts)));
 
-        value = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+      build-sys = hostSet:
+        let
+          parts = splitString "." hostSet;
 
-          modules = [
-            (import (./default.nix))
-            (import (./hosts + "/${target}/configuration.nix"))
-            (import (./hosts + "/${target}/hardware-configuration.nix"))
-          ];
+          myName = elemAt parts 0;
+          mySys = elemAt parts 1;
+          myPkg = elemAt parts 2;
+
+          hostSys = {
+            system = mySys;
+            modules = [
+              (import (./default.nix))
+              (import (./hosts + "/${hostSet}/configuration.nix"))
+              (import (./hosts + "/${hostSet}/hardware-configuration.nix"))
+            ];
+          };
+        in {
+          name = myName;
+
+          value = if myPkg == "unstable" then
+            unstable.lib.nixosSystem hostSys
+          else
+            stable.lib.nixosSystem hostSys;
         };
-      };
 
     in {
-      nixosConfigurations = builtins.listToAttrs
-        (pkgs.lib.flatten (map (target: [ (build-target target) ]) targets));
+      nixosConfigurations =
+        listToAttrs (flatten (map (host: [ (build-sys host) ]) hosts));
     };
 }
